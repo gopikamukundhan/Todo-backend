@@ -13,12 +13,12 @@ const [showUpdateModal, setShowUpdateModal] = useState(false);
 const [updateId, setUpdateId] = useState(null);
 const [updateText, setUpdateText] = useState("");
   const getTodos = async () => {
-    const response = await axios.get("http://localhost:3000/todos");
+    const response = await axios.get("https://todo-backend-q73v.onrender.com/todos");
     setTodos(response.data);
   };
 
   const addTodo = async () => {
-    await axios.post("http://localhost:3000/todos", {
+    await axios.post("https://todo-backend-q73v.onrender.com/todos", {
       desc: todo,
       completed: false,
     });
@@ -42,7 +42,7 @@ const updateTodo = (id, oldDesc) => {
    const markAsCompleted = async (id) => {
   console.log("Mark button clicked");
 
-  await axios.put(`http://localhost:3000/todos/${id}`, {
+  await axios.put(`https://todo-backend-q73v.onrender.com/todos/${id}`, {
     completed: true,
   });
 
@@ -51,7 +51,7 @@ const updateTodo = (id, oldDesc) => {
   toast.success("Todo marked as completed");
 };
 const saveUpdatedTodo = async () => {
-  await axios.put(`http://localhost:3000/todos/${updateId}`, {
+  await axios.put(`https://todo-backend-q73v.onrender.com/todos/${updateId}`, {
     desc: updateText,
   });
 
@@ -183,7 +183,7 @@ Update
 
       <button
         onClick={async () => {
-          await axios.delete(`http://localhost:3000/todos/${deleteId}`);
+          await axios.delete(`https://todo-backend-q73v.onrender.com/todos/${deleteId}`);
           getTodos();
           setShowDeleteModal(false);
           toast.success("Todo deleted");

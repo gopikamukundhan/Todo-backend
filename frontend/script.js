@@ -1,6 +1,6 @@
 console.log("this is from client");
 
-let backendData = fetch("http://localhost:3000/tools")
+let backendData = fetch("https://todo-backend-q73v.onrender.com/tools")
 
 backendData
 .then((res) => res.json())
